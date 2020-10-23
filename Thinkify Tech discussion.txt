@@ -1,0 +1,38 @@
+let print = (function() {
+    let counter = 0;
+    return function () {
+        counter+= 1;
+    }
+})();
+
+console.log(print());
+
+class Parent extends Component {
+    state : {
+        vote: 'disabled'
+    }
+    voteHandler = () => {
+        this.setState({
+            vote: 'enabled'
+        })
+    }
+    render () {
+        return (
+            <div>Parent Component
+                <Child age = {someValue} onVoteHandler = {this.voteHandler}/>
+            <div>
+        )
+    }
+}
+
+class Child extends Component {
+    render() {
+        return (
+            <div>
+            <h1>ChildComponent<h1>
+            <button onClick = {(this.props.age > 18) ? this.props.voteHandler : 0 }
+            </div>
+        )
+    }
+
+}
